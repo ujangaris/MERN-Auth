@@ -8,7 +8,10 @@ app.use(cors())
 app.use(express.json())
 
 // connect to the database
-mongoose.connect('mongodb://127.0.0.1:27017/auth')
+// mongoose.connect('mongodb://127.0.0.1:27017/auth')
+mongoose.connect(
+  'mongodb+srv://ujang123:ujang123@cluster0.kf8gt.mongodb.net/auth?retryWrites=true&w=majority'
+)
 
 const UserSchema = new mongoose.Schema({
   email: String,
