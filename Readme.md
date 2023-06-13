@@ -21,3 +21,15 @@
     4.  pengujian pada browser
         - npm run dev
         - http://localhost:5173/
+
+## server setup
+
+    Todo:
+    1.  buat file server diluar client
+        - cd client
+        - /client : npm init -y
+        - npm install express mongoose cors nodemon
+    2.  setup server
+        - /server/index.js
+    3.  pengujian server
+        - npm start
