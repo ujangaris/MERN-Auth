@@ -60,3 +60,28 @@
         - http://localhost:7153
         - coba lakukan login dengan user terdaftar, lihat pada terminal akan ada data user yang berhasil login
         - coba salahkan saat login, akan ada response pada console.log
+
+## Register User
+
+    Todo:
+    1.  components/Register.jsx
+        - deklarasi hook register
+        - pasang useNavigate
+        - pasang handle sumbimt form
+        - form copy dari login lalu modifikasi
+    2.  server/index.js
+        - modidikasi Login user
+        - Register user
+        - import models/Auth.js
+    3.  models/Auth.js
+        - setup Schema
+    4.  components/Home.jsx
+        - setup home
+    6.  App.jsx
+        - import dan pasang Home & Register
+    7.  pengujian pada browser
+        - client npm run dev
+        - server npm start
+        - http://localhost:7153, klik button register
+        - coba lakukan register dengan user terdaftar, jika berhasil akan diarahkan ke halaman login
+        - lakukan login dengan user yang baru saja didaftarkan, jika berhasil akan diarahkan kehalaman home

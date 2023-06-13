@@ -2,28 +2,44 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Login = () => {
-  // Deklarasi hooks for email & passsword
+const Register = () => {
+    // deklarasi hook register
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+//   pasang useNavigate
   const navigate = useNavigate()
-  // pasang handleSumbmit form
+// pasang handle sumbimt form
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:3001/login', { email, password })
+      .post('http://localhost:3001/register', { name, email, password })
       .then((response) => {
-        alert('Login successfully')
+        alert('Registration successful')
         console.log(response)
-        navigate('/')
+        navigate('/login')
       })
       .catch((error) => console.error(error))
   }
+
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
       <div className='bg-white p-3 rounded w-25'>
-        <h2 className='text-center'>Sign-In</h2>
+        <h2 className='text-center'>Register</h2>
         <form onSubmit={handleSubmit}>
+          <div className='mb-3'>
+            <label htmlFor='name'>
+              <strong>name</strong>
+            </label>
+            <input
+              type='name'
+              placeholder='Enter name'
+              name='name'
+              className='form-control'
+              autoComplete='off'
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
           <div className='mb-3'>
             <label htmlFor='email'>
               <strong>Email</strong>
@@ -51,23 +67,20 @@ const Login = () => {
           </div>
           <button
             type='submit'
-            className='btn btn-success w-100 rounded-0 mb-2'
+            className='btn btn-success w-100 rounded-0 my-2'
           >
-            Login
+            Register
           </button>
-
-          <button className='btn btn-default border w-100 bg-light text-decoration-non rounded-0 '>
-            <Link
-              to='/register'
-              className='text-decoration-none text-primary-emphasis'
-            >
-              Create Account
+          <p>
+            Already have an account?
+            <Link to='/login' className='text-decoration-none mx-2 '>
+              Login
             </Link>
-          </button>
+          </p>
         </form>
       </div>
     </div>
   )
 }
 
-export default Login
+export default Register
