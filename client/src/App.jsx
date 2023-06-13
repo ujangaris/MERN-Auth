@@ -1,34 +1,46 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
+      <div className='bg-white p-3 rounded w-25'>
+        <h2 className='text-center'>Sign-In</h2>
+        <form action=''>
+          <div className='mb-3'>
+            <label htmlFor='email'>
+              <strong>Email</strong>
+            </label>
+            <input
+              type='email'
+              placeholder='Enter Email'
+              name='email'
+              className='form-control'
+              autoComplete='off'
+            />
+          </div>
+          <div className='mb-3'>
+            <label htmlFor='password'>
+              <strong>Password</strong>
+            </label>
+            <input
+              type='password'
+              placeholder='Enter Password'
+              name='password'
+              className='form-control'
+            />
+          </div>
+          <button type='submit' className='btn btn-success w-100 rounded-0'>
+            Login
+          </button>
+          {/* <p>Your are agree to aour term and policies</p> */}
+          {/* <button className='btn btn-default border w-100 bg-light text-decoration-non rounded-0'>
+            Create Account
+          </button> */}
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
