@@ -33,3 +33,30 @@
         - /server/index.js
     3.  pengujian server
         - npm start
+
+## Conection server to client
+
+    Todo:
+    1.  buat database pada mongo compas
+        - nama database nya: users
+        - add satu data :
+            - email: 'test@gmail.com'
+            - password: '12345'
+    2.  connect to database
+        - /server/index.js
+    3.  install react router dom
+        - npm install react-router-dom
+    4.  components/Login.jsx
+        - Deklarasi hooks for email & passsword
+        - import dan pasang handleSumbmit form
+    5.  Main.jsx
+        - import dan pasang BrowserRouter dari react router dom
+    6.  App.jsx
+        - import dan pasang Routes & Route dari react router dom
+        - import dan pasang Login
+    7.  pengujian pada browser
+        - client npm run dev
+        - server npm start
+        - http://localhost:7153
+        - coba lakukan login dengan user terdaftar, lihat pada terminal akan ada data user yang berhasil login
+        - coba salahkan saat login, akan ada response pada console.log
