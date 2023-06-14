@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   // Deklarasi hooks for email & passsword
@@ -13,15 +14,19 @@ const Login = () => {
     axios
       .post('http://localhost:3001/login', { email, password })
       .then((response) => {
-        alert('Login successfully')
-        console.log(response)
-        navigate('/')
+        Swal.fire({
+          title: 'Success',
+          text: 'Login successful',
+          icon: 'success',
+        }).then(() => {
+          navigate('/')
+        })
       })
       .catch((error) => console.error(error))
   }
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-      <div className='bg-white p-3 rounded w-25'>
+      <div className='bg-white p-3 rounded '>
         <h2 className='text-center'>Sign-In</h2>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>

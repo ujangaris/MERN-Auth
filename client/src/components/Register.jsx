@@ -1,30 +1,36 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 const Register = () => {
-    // deklarasi hook register
+  // deklarasi hook register
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-//   pasang useNavigate
+  //   pasang useNavigate
   const navigate = useNavigate()
-// pasang handle sumbimt form
+  // pasang handle sumbimt form
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
       .post('http://localhost:3001/register', { name, email, password })
       .then((response) => {
-        alert('Registration successful')
-        console.log(response)
-        navigate('/login')
+        Swal.fire({
+          title: 'Success',
+          text: 'Registration successful',
+          icon: 'success',
+        }).then(() => {
+          navigate('/login')
+        })
       })
       .catch((error) => console.error(error))
   }
 
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-      <div className='bg-white p-3 rounded w-25'>
+      <div className='bg-white p-3 rounded '>
         <h2 className='text-center'>Register</h2>
         <form onSubmit={handleSubmit}>
           <div className='mb-3'>
